@@ -510,6 +510,7 @@ body {
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
 .book-details-breadcrumb {
@@ -579,11 +580,6 @@ body {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1rem;
   color: #333;
-  padding: 0.5rem;
-}
-
-.book-detail-item:nth-child(even) {
-  background-color: #e8e8e8;
 }
 
 .book-detail-item strong {

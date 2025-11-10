@@ -9,7 +9,7 @@ function Book(props) {
     };
 
     const handleDetailsClick = (e) => {
-        e.stopPropagation(); 
+        e.stopPropagation(); // Prevent card selection when clicking details button
         if (props.onViewDetails && props.id) {
             props.onViewDetails(props.id);
         }
