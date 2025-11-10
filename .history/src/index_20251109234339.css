@@ -606,18 +606,12 @@ body {
 }
 
 .similar-books-loading,
-.similar-books-empty,
-.similar-books-error {
+.similar-books-empty {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 1rem;
   color: #666;
-  text-align: left;
+  text-align: center;
   padding: 2rem;
-}
-
-.similar-books-error {
-  color: #b2395b;
-  font-weight: bold;
 }
 
 .similar-books-container {
@@ -673,6 +667,7 @@ body {
   margin: 0;
   line-height: 1.3;
   display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -684,6 +679,7 @@ body {
   margin: 0;
   line-height: 1.2;
   display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

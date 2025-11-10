@@ -114,20 +114,20 @@ function App() {
     setSelectedPublisher(e.target.value);
   };
 
-
+  // Get unique publishers for the dropdown
   const getUniquePublishers = () => {
     const publishers = books.map(book => book.publisher).filter(Boolean);
     return [...new Set(publishers)];
   };
 
-
+  // Get available books (not currently on loan)
   const getAvailableBooks = () => {
     const loanedBookIds = loans.map(loan => loan.bookId);
     return books.filter(book => !loanedBookIds.includes(book.id));
   };
 
   const handleAddLoan = (loanData) => {
-
+    // Calculate due date based on loan period (in weeks)
     const today = new Date();
     const dueDate = new Date(today);
     dueDate.setDate(today.getDate() + (parseInt(loanData.loanPeriod) * 7));
@@ -160,6 +160,7 @@ function App() {
     setSimilarBooksError(null);
   };
 
+  // Fetch similar books when a book is selected for details view
   useEffect(() => {
     const fetchSimilarBooks = async () => {
       if (!selectedBookDetails || !selectedBookDetails.title) {
@@ -191,12 +192,15 @@ function App() {
 
           const filtered = data.books
             .filter(book => {
+              // Skip invalid books
               if (!book || !book.title) {
                 return false;
               }
+              // Exclude if isbn13 matches (if current book has isbn13)
               if (selectedBookDetails.isbn13 && book.isbn13 && book.isbn13 === selectedBookDetails.isbn13) {
                 return false;
               }
+              // Also exclude if title exactly matches
               if (book.title && selectedBookDetails.title && 
                   book.title.toLowerCase() === selectedBookDetails.title.toLowerCase()) {
                 return false;
